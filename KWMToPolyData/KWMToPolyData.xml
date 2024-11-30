@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+  <category>Examples</category>
+  <title>KWMToPolyData</title>
+  <description><![CDATA[This is a CLI module that can be bundled in an extension]]></description>
+  <version>0.0.1</version>
+  <documentation-url>http://www.example.com/Slicer/Modules/KWMToPolyData</documentation-url>
+  <license>Slicer</license>
+  <contributor>Ben Wilson (Kitware)</contributor>
+  <acknowledgements></acknowledgements>
+  <parameters>
+    <label>IO</label>
+    <description><![CDATA[Input/output parameters]]></description>
+    <geometry>
+      <name>inputVolume</name>
+      <label>Input Volume</label>
+      <channel>input</channel>
+      <index>0</index>
+      <description><![CDATA[Input volume]]></description>
+    </geometry>
+    <geometry>
+      <name>outputVolume</name>
+      <label>Output Volume</label>
+      <channel>output</channel>
+      <index>1</index>
+      <description><![CDATA[Output Volume]]></description>
+    </geometry>
+    <file>
+    <name>inFile</name>
+    <label>KWM File Name</label>
+    <channel>output</channel>
+    <description>KWM File Name</description>
+    <default></default>
+   </file>
+   <file>
+   <name>scalarFile</name>
+   <label>Scalar File Name</label>
+   <channel>output</channel>
+   <description>Scalar File Name</description>
+   <default></default>
+  </file>
+  </parameters>
+</executable>

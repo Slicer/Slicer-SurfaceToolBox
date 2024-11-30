@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+  <category>Surface Models.Advanced</category>
+  <title>ImportFromFile</title>
+  <description><![CDATA[This is a CLI module that can be bundled in an extension]]></description>
+  <version>0.0.1</version>
+  <documentation-url>http://www.example.com/Slicer/Modules/ImportFromFile</documentation-url>
+  <license>Slicer</license>
+  <contributor>Ben Wilson (Kitware)</contributor>
+  <acknowledgements></acknowledgements>
+  <parameters>
+    <label>IO</label>
+    <description><![CDATA[Input/output parameters]]></description>
+    <file>
+    <name>inputFile</name>
+    <label>Input File Name</label>
+    <channel>input</channel>
+    <description>Input File Name</description>
+    <default></default>
+   </file>
+   <file>
+   <name>outputFile</name>
+   <label>Output File Name</label>
+   <channel>output</channel>
+   <description>Output File Name</description>
+   <default></default>
+  </file>
+  </parameters>
+</executable>

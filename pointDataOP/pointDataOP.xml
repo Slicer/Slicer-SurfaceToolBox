@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+  <category>Surface Models.Advanced</category>
+  <title>pointDataOP</title>
+  <description><![CDATA[This is a CLI module that can be bundled in an extension]]></description>
+  <version>0.0.1</version>
+  <documentation-url>http://www.example.com/Slicer/Modules/pointDataOP</documentation-url>
+  <license>Slicer</license>
+  <contributor>Ben Wilson (Kitware)</contributor>
+  <acknowledgements></acknowledgements>
+  <parameters>
+    <label>IO</label>
+    <description><![CDATA[Input/output parameters]]></description>
+    <geometry>
+      <name>inputVolume</name>
+      <label>Input Volume</label>
+      <channel>input</channel>
+      <index>0</index>
+      <description><![CDATA[Input volume]]></description>
+    </geometry>
+    <geometry>
+      <name>outputVolume</name>
+      <label>Output Volume</label>
+      <channel>output</channel>
+      <index>1</index>
+      <description><![CDATA[Output Volume]]></description>
+    </geometry>
+    <string>
+      <name>names</name>
+      <label>names</label>
+      <channel>input</channel>
+      <description>Name: </description>
+      <default></default>
+    </string>
+    <string-enumeration>
+      <name>operation</name>
+      <label>Operation</label>
+      <longflag>--operaton</longflag>
+      <description><![CDATA[<op>: [threshBelow | sub]  threshBelow: set to 0 all data below <value>, sub: subtract value.]]></description>
+      <default>threshBelow</default>
+      <element>threshBelow</element>
+      <element>sub</element>
+    </string-enumeration>
+    <double>
+    <name>opVal</name>
+    <label>Op Value</label>
+    <channel>output</channel>
+    <description>Op Value</description>
+    <default>0</default>
+    <constraints>
+      <minimum>-10.0</minimum>
+      <maximum>10.0</maximum>
+    </constraints>
+  </double>
+  </parameters>
+</executable>

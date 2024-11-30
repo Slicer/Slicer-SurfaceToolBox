@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+  <category>Surface Models.Advanced</category>
+  <title>closestPoint</title>
+  <description><![CDATA[This is a CLI module that can be bundled in an extension]]></description>
+  <version>0.0.1</version>
+  <documentation-url>http://www.example.com/Slicer/Modules/avgMesh</documentation-url>
+  <license>Slicer</license>
+  <contributor>Ben Wilson (Kitware)</contributor>
+  <acknowledgements></acknowledgements>
+  <parameters>
+    <label>IO</label>
+    <description><![CDATA[Input/output parameters]]></description>
+    <geometry>
+      <name>inputVolume</name>
+      <label>Input Volume</label>
+      <channel>input</channel>
+      <index>0</index>
+      <description><![CDATA[Input volume]]></description>
+    </geometry>
+    <geometry>
+      <name>inputVolumeTwo</name>
+      <label>Input Volume Two </label>
+      <channel>input</channel>
+      <index>1</index>
+      <description><![CDATA[Input volume two]]></description>
+    </geometry>
+    <file>
+      <longflag>valFile</longflag>
+      <description><![CDATA[An Input file]]></description>
+      <label>Input file</label>
+      <channel>input</channel>
+    </file>
+    <file>
+      <longflag>outFile</longflag>
+      <description><![CDATA[An output file]]></description>
+      <label>Output file</label>
+      <channel>output</channel>
+    </file>
+  </parameters>
+</executable>

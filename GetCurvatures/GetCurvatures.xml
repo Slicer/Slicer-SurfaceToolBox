@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+  <category>Surface Models.Advanced</category>
+  <title>GetCurvatures</title>
+  <description><![CDATA[This is a CLI module that can be bundled in an extension]]></description>
+  <version>0.0.1</version>
+  <documentation-url>http://www.example.com/Slicer/Modules/GetCurvatures</documentation-url>
+  <license>Slicer</license>
+  <contributor>Ben Wilson (Kitware)</contributor>
+  <acknowledgements></acknowledgements>
+  <parameters>
+    <label>IO</label>
+    <description><![CDATA[Input/output parameters]]></description>
+    <geometry>
+      <name>inputVolume</name>
+      <label>Input Volume</label>
+      <channel>input</channel>
+      <index>0</index>
+      <description><![CDATA[Input volume]]></description>
+    </geometry>
+    <file>
+    <name>outputCurve</name>
+    <label>Curve Output File Name</label>
+    <channel>output</channel>
+    <description>Curve Output File Name</description>
+    <default></default>
+   </file>
+   <file>
+   <name>outputShape</name>
+   <label>Shape Output File Name</label>
+   <channel>output</channel>
+   <description>Shape Output File Name</description>
+   <default></default>
+  </file>
+   <file>
+   <name>outputGauss</name>
+   <label>Gauss Output File Name</label>
+   <channel>output</channel>
+   <description>Gauss Output File Name</description>
+   <default></default>
+  </file>
+  <file>
+  <name>outputMean</name>
+  <label>Mean Output File Name</label>
+  <channel>output</channel>
+  <description>Mean Output File Name</description>
+  <default></default>
+ </file>
+  </parameters>
+</executable>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+  <category>Surface Models.Advanced</category>
+  <title>InvVect</title>
+  <description><![CDATA[This is a CLI module that can be bundled in an extension]]></description>
+  <version>0.0.1</version>
+  <documentation-url>http://www.example.com/Slicer/Modules/InvVect</documentation-url>
+  <license>Slicer</license>
+  <contributor>FirstName LastName (Institution), FirstName LastName (Institution)</contributor>
+  <acknowledgements>This work was partially funded by NIH grant NXNNXXNNNNNN-NNXN</acknowledgements>
+  <parameters>
+    <label>IO</label>
+    <description><![CDATA[Input/output parameters]]></description>
+    <file>
+      <longflag>vectFile</longflag>
+      <description><![CDATA[An Input file]]></description>
+      <label>Input file</label>
+      <channel>input</channel>
+    </file>
+    <file>
+      <longflag>outFile</longflag>
+      <description><![CDATA[An output file]]></description>
+      <label>Output file</label>
+      <channel>output</channel>
+    </file>
+  </parameters>
+</executable>

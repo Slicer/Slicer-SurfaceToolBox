@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+  <category>Surface Models.Advanced</category>
+  <title>GetDirectionFeatures</title>
+  <description><![CDATA[This is a CLI module that can be bundled in an extension]]></description>
+  <version>0.0.1</version>
+  <documentation-url>http://www.example.com/Slicer/Modules/GetDirectionFeatures</documentation-url>
+  <license>Slicer</license>
+  <contributor>Ben Wilson (Kitware)</contributor>
+  <acknowledgements></acknowledgements>
+  <parameters>
+    <label>IO</label>
+    <description><![CDATA[Input/output parameters]]></description>
+    <geometry>
+      <name>inputVolume</name>
+      <label>Input Volume</label>
+      <channel>input</channel>
+      <index>0</index>
+      <description><![CDATA[Input volume]]></description>
+    </geometry>
+    <geometry>
+      <name>outputVolume</name>
+      <label>Output Volume</label>
+      <channel>output</channel>
+      <index>1</index>
+      <description><![CDATA[Output Volume]]></description>
+    </geometry>
+    <file>
+    <name>vecXFile</name>
+    <label>VectorX File Name</label>
+    <channel>output</channel>
+    <description>Output File Name</description>
+  </file>
+   <file>
+   <name>vecYFile</name>
+   <label>VectorY File Name</label>
+   <channel>output</channel>
+   <description>Output File Name</description>
+  </file>
+  <file>
+  <name>vecZFile</name>
+  <label>VectorZ File Name</label>
+  <channel>output</channel>
+  <description>Output File Name</description>
+ </file>
+  </parameters>
+</executable>
