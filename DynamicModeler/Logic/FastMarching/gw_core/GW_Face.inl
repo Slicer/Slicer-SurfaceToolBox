@@ -356,7 +356,7 @@ GW_I32 GW_Face::GetEdgeNumber( const GW_Vertex& Vert1, const GW_Vertex& Vert2 )
 				return (i+1)%3;
 		}
 	}
-	return NULL;
+  return -1;
 }
 
 
