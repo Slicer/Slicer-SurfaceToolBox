@@ -49,6 +49,7 @@
 #include <vtkSlicerDynamicModelerBoundaryCutTool.h>
 #include <vtkSlicerDynamicModelerCurveCutTool.h>
 #include <vtkSlicerDynamicModelerExtrudeTool.h>
+#include <vtkSlicerDynamicModelerRevolveTool.h>
 #include <vtkSlicerDynamicModelerHollowTool.h>
 #include <vtkSlicerDynamicModelerMarginTool.h>
 #include <vtkSlicerDynamicModelerLogic.h>
@@ -126,6 +127,10 @@ void qSlicerDynamicModelerModuleWidget::setup()
 
   vtkNew<vtkSlicerDynamicModelerExtrudeTool> extrudeTool;
   this->addToolButton(QIcon(":/Icons/Extrude.png"), extrudeTool, buttonPosition / columns, buttonPosition % columns);
+  buttonPosition++;
+
+  vtkNew<vtkSlicerDynamicModelerRevolveTool> revolveTool;
+  this->addToolButton(QIcon(":/Icons/Revolve.png"), revolveTool, buttonPosition / columns, buttonPosition % columns);
   buttonPosition++;
 
   vtkNew<vtkSlicerDynamicModelerHollowTool> hollowTool;
@@ -397,6 +402,14 @@ void qSlicerDynamicModelerModuleWidget::rebuildParameterWidgets()
     else if (type == vtkSlicerDynamicModelerTool::PARAMETER_INT)
       {
       QSpinBox* spinBox = new QSpinBox();
+      vtkDoubleArray* numbersRange = tool->GetNthInputParameterNumberRange(i);
+      spinBox->setMinimum(int(std::round(numbersRange->GetTuple1(0))));
+      spinBox->setMaximum(int(std::round(numbersRange->GetTuple1(1))));
+      double dNumberSingleStep = tool->GetNthInputParameterNumberSingleStep(i);
+      int numberSingleStep = (
+        int(std::pow(10,std::floor(std::log10(dNumberSingleStep))))
+        );
+      spinBox->setSingleStep(numberSingleStep);
       connect(spinBox, SIGNAL(valueChanged(int)),
         this, SLOT(updateMRMLFromWidget()));
       parameterSelector = spinBox;
@@ -404,7 +417,11 @@ void qSlicerDynamicModelerModuleWidget::rebuildParameterWidgets()
     else if (type == vtkSlicerDynamicModelerTool::PARAMETER_DOUBLE)
       {
       ctkDoubleSpinBox* doubleSpinBox = new ctkDoubleSpinBox();
-      doubleSpinBox->setMinimum(-doubleSpinBox->maximum()); // allow negative values
+      vtkDoubleArray* numbersRange = tool->GetNthInputParameterNumberRange(i);
+      doubleSpinBox->setMinimum(numbersRange->GetTuple1(0));
+      doubleSpinBox->setMaximum(numbersRange->GetTuple1(1));
+      doubleSpinBox->setDecimals(tool->GetNthInputParameterNumberDecimals(i));
+      doubleSpinBox->setSingleStep(tool->GetNthInputParameterNumberSingleStep(i));
       connect(doubleSpinBox, SIGNAL(valueChanged(double)),
         this, SLOT(updateMRMLFromWidget()));
       parameterSelector = doubleSpinBox;

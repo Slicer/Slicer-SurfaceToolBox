@@ -25,6 +25,7 @@
 
 // VTK includes
 #include <vtkIntArray.h>
+#include <vtkDoubleArray.h>
 #include <vtkObject.h>
 #include <vtkStringArray.h>
 
@@ -141,6 +142,18 @@ public:
   /// Only used for string enum types
   vtkStringArray* GetNthInputParameterPossibleValues(int n);
 
+  /// Returns the number range of the Nth input parameter.
+  /// Only used for int and double types
+  vtkDoubleArray* GetNthInputParameterNumberRange(int n);
+
+  /// Returns the number of decimals of the Nth input parameter.
+  /// Only used for double types
+  int GetNthInputParameterNumberDecimals(int n);
+
+  /// Returns the single step of the Nth input parameter.
+  /// Only used for int and double types
+  double GetNthInputParameterNumberSingleStep(int n);
+
   /// Returns true if all of the required inputs have been specified for the surface editor node.
   virtual bool HasRequiredInputs(vtkMRMLDynamicModelerNode* surfaceEditorNode);
 
@@ -209,13 +222,30 @@ protected:
   
   struct StructParameterInfo
   {
-    StructParameterInfo(std::string name, std::string description, std::string attributeName, int type, vtkVariant defaultValue)
+    StructParameterInfo(
+        std::string name, 
+        std::string description, 
+        std::string attributeName, 
+        int type, 
+        vtkVariant defaultValue,
+        vtkDoubleArray* numbersRange = vtkDoubleArray::New(),
+        int numberDecimals = 2,
+        double numberSingleStep = 1.0
+      )
       : Name(name)
       , Description(description)
       , AttributeName(attributeName)
       , Type(type)
       , DefaultValue(defaultValue)
+      , NumbersRange(numbersRange)
+      , NumberDecimals(numberDecimals)
+      , NumberSingleStep(numberSingleStep)
     {
+      if (NumbersRange->GetNumberOfTuples() == 0)
+      {
+        NumbersRange->InsertNextTuple1(-99.99);
+        NumbersRange->InsertNextTuple1(99.99);
+      }
     }
     std::string Name;
     std::string Description;
@@ -223,6 +253,9 @@ protected:
     int Type{ PARAMETER_STRING };
     vtkVariant DefaultValue;
     vtkSmartPointer<vtkStringArray> PossibleValues;
+    vtkSmartPointer<vtkDoubleArray> NumbersRange;
+    int NumberDecimals;
+    double NumberSingleStep;
   };
   using ParameterInfo = struct StructParameterInfo;
   std::vector<ParameterInfo> InputParameterInfo;
